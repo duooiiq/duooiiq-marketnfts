@@ -6,8 +6,8 @@ import {
   Divider,
   createStyles,
 } from "@material-ui/core";
-import { atom, selector, useRecoilState, useRecoilValue } from "recoil";
-import { allItems, itemData, myAddress, itemIdAtom,  snackbarTextAtom, snackbarControllerAtom } from "../../recoils/atoms";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { itemData, myAddress, itemIdAtom,  snackbarTextAtom, snackbarControllerAtom } from "../../recoils/atoms";
 
 import addresses from "../../constants/contracts";
 import NftContract from "../../abis/nft.json";
@@ -58,7 +58,7 @@ async function getRevertReason(txHash, setSnackbarText, setSnackbarController) {
   return result;
 }
 
-const ItemButtonGroup = (props) => {
+const ItemButtonGroup = () => {
   const classes = useStyles();
 
   const regex = /^([0-9]+(\.[0-9]+)?)$/g;
@@ -79,9 +79,9 @@ const ItemButtonGroup = (props) => {
   const [bidTextFieldError, setBidTextFieldError] = React.useState(false);
   const [putOnSaleTextFieldError, setPutOnSaleTextFieldError] = React.useState(false);
 
-  const isThirdPerson = data.owner.toLowerCase() != userAddress.toLowerCase();
+  const isThirdPerson = data.owner.toLowerCase() !== userAddress.toLowerCase();
 
-  const isMaxBidder = data.maxBidder.toLowerCase() == userAddress.toLowerCase();
+  const isMaxBidder = data.maxBidder.toLowerCase() === userAddress.toLowerCase();
 
 
   const [buttonTrigger, setButtonTrigger] = React.useState(false);
@@ -129,8 +129,6 @@ const ItemButtonGroup = (props) => {
       })
       .on("error", async function (error, receipt) {
         console.log(error, receipt);
-        var error_message = await getRevertReason(receipt.transactionHash, setSnackbarText, setSnackbarController);
-        //alert(error_message)
       });
   };
 
@@ -160,8 +158,7 @@ const ItemButtonGroup = (props) => {
       .on("error", async function (error, receipt) {
         console.log(receipt);
         console.log(error, receipt);
-        var error_message = await getRevertReason(receipt.transactionHash, setSnackbarText, setSnackbarController);
-
+    
         console.log(error.data);
       });
   };
@@ -190,7 +187,6 @@ const ItemButtonGroup = (props) => {
       })
       .on("error", async function (error, receipt) {
         console.log(error, receipt);
-        var error_message = await getRevertReason(receipt.transactionHash, setSnackbarText, setSnackbarController);
       });
   };
 
@@ -212,7 +208,6 @@ const ItemButtonGroup = (props) => {
       })
       .on("error", async function (error, receipt) {
         console.log(error, receipt);
-        var error_message = await getRevertReason(receipt.transactionHash, setSnackbarText, setSnackbarController);
       });
   };
 
@@ -234,7 +229,6 @@ const ItemButtonGroup = (props) => {
       })
       .on("error", async function (error, receipt) {
         console.log(error, receipt);
-        var error_message = await getRevertReason(receipt.transactionHash, setSnackbarText, setSnackbarController);
       });
   };
 
@@ -256,7 +250,6 @@ const ItemButtonGroup = (props) => {
       })
       .on("error", async function (error, receipt) {
         console.log(error, receipt);
-        var error_message = await getRevertReason(receipt.transactionHash, setSnackbarText, setSnackbarController);
       });
   };
 
@@ -278,7 +271,6 @@ const ItemButtonGroup = (props) => {
       })
       .on("error", async function (error, receipt) {
         console.log(error, receipt);
-        var error_message = await getRevertReason(receipt.transactionHash, setSnackbarText, setSnackbarController);
       });
   };
 
@@ -300,7 +292,6 @@ const ItemButtonGroup = (props) => {
       })
       .on("error", async function (error, receipt) {
         console.log(error, receipt);
-        var error_message = await getRevertReason(receipt.transactionHash, setSnackbarText, setSnackbarController);
       });
   };
 
@@ -322,7 +313,6 @@ const ItemButtonGroup = (props) => {
       })
       .on("error", async function (error, receipt) {
         console.log(error, receipt);
-        var error_message = await getRevertReason(receipt.transactionHash, setSnackbarText, setSnackbarController);
       });
   };
 
@@ -344,7 +334,6 @@ const ItemButtonGroup = (props) => {
       })
       .on("error", async function (error, receipt) {
         console.log(error, receipt);
-        var error_message = await getRevertReason(receipt.transactionHash, setSnackbarText, setSnackbarController);
       });
   };
 

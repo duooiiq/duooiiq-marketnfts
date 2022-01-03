@@ -1,10 +1,7 @@
 import React from "react";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
-import TouchRipple from "@material-ui/core/ButtonBase/TouchRipple";
 import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Tooltip from "@material-ui/core/Tooltip";
@@ -12,8 +9,7 @@ import Typography from "@material-ui/core/Typography";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import PanToolSharpIcon from "@material-ui/icons/PanToolSharp";
 import LocalOfferSharpIcon from "@material-ui/icons/LocalOfferSharp";
-import { Grid, Container, Paper } from "@material-ui/core";
-import { atom, selector, useRecoilState, useRecoilValue } from "recoil";
+import { Grid } from "@material-ui/core";
 
 import NftContract from "../../abis/nft.json";
 import addresses from "../../constants/contracts";
