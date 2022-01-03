@@ -34,22 +34,21 @@ export default function WearItems() {
     } catch (error) {
       console.log('Error uploading file: ', error)
     }
+    }
   async function CreateItems() {
   const contract = new web3.eth.Contract(NftContract.abi, addresses.NFT_CONTRACTS_ADDRESS)
   const accounts = await window.ethereum.request({ method: "eth_requestAccounts" })
   let name = (Object.values(itemName)).toString();
-  let url =  (Object.values(fileUrl)).toString();
-  contract.methods.mint("4", name, url, "common").send({
+  contract.methods.mint("4", name, fileUrl, "common").send({
     from: accounts[0],
     gas: 2500000
   })
   console.log(name)
-  console.log(url)
+  console.log(fileUrl)
   const h2 = document.getElementById('name');
   h2.innerText = name;
   const h22 = document.getElementById('url');
-  h22.innerText = url;
-}
+  h22.innerText = fileUrl;
 }
   return (
     <div>

@@ -251,7 +251,7 @@ const ItemPage = (props) => {
           //   backgroundColor: "#006666",
           // }}
           >
-            <img style={{ width: 300 }} src={"https://" + data.cid} />
+            <img style={{ width: 300 }} src={data.cid} />
           </div>
           {/* </Paper> */}
         </Grid>
