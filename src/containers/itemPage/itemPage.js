@@ -14,6 +14,9 @@ import {
   Typography,
   IconButton,
 } from "@material-ui/core";
+
+import { IoIosHeart } from 'react-icons/io'
+import { IoIosHeartEmpty } from 'react-icons/io'
 import DeleteIcon from "@material-ui/icons/Delete";
 import CloseIcon from "@material-ui/icons/Close";
 import VisibilityIcon from "@material-ui/icons/Visibility";
@@ -24,6 +27,7 @@ import LocalOfferSharpIcon from "@material-ui/icons/LocalOfferSharp";
 import StarsIcon from "@material-ui/icons/Stars";
 import DnsIcon from "@material-ui/icons/Dns";
 import ItemButtonGroup from "../../components/itemButtonGroup/itemButtonGroup";
+import { IoIosRadioButtonOn } from 'react-icons/io'
 import NftContract from "../../abis/nft.json";
 
 import { getUsername } from "../../utils/getUsernameFromAddress";
@@ -135,6 +139,7 @@ const ItemPage = (props) => {
                 // console.log("currentTokenId", currentTokenId);
                 // console.log("owner", owner);
                 setData({ ...currentNftData, owner: owner });
+                console.log(currentNftData)
 
                 getUsername(nft_contract_interface, owner).then(
                   (data) => {
@@ -220,7 +225,7 @@ const ItemPage = (props) => {
   }, [window.web3.eth]);
 
   const classes = useStyles();
-
+  const BNBIcon = <img src="../../Binance-Coin-BNB-icon.png" />;
   if (
     !data ||
     data.owner == undefined ||
@@ -296,6 +301,29 @@ const ItemPage = (props) => {
                         marginBottom: 20,
                       }}
                     >
+                      <IoIosRadioButtonOn
+                      style={{
+                        verticalAlign: "middle",
+                        marginTop: 5,
+                        marginRight: 10,
+                        fontSize: 20,
+                      }}
+                      />
+                      <Typography
+                      variant="overline"
+                      display="block"
+                      gutterbottom="true"
+                      >
+                        Description: {data.description}
+                      </Typography>
+                      </div>
+                      <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        marginBottom: 20
+                      }}
+                      >
                       <StarsIcon
                         style={{
                           verticalAlign: "middle",
@@ -367,7 +395,7 @@ const ItemPage = (props) => {
                         }}
                       />
                       <Typography variant="body1" display="block" gutterbottom ="true">
-                        Price: {data.isOnSale ? window.web3.utils.fromWei(data.sellPrice) + " Ξ" : "-"}
+                        Price: {data.isOnSale ? window.web3.utils.fromWei(data.sellPrice) + " Ξ" : "No is for sale !"}
                       </Typography>
                     </div>
                     <div>
@@ -386,7 +414,7 @@ const ItemPage = (props) => {
                           gutterbottom="true"
                         >
                           Highest Bid:{" "}
-                          {data.isBiddable ? window.web3.utils.fromWei(data.maxBid) + " Ξ" : "-"}
+                          {data.isBiddable ? window.web3.utils.fromWei(data.maxBid) + " Ξ" : "Non in auction"}
                         </Typography>
                       </div>
                     </div>

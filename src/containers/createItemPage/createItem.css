@@ -1,0 +1,12 @@
+.formName {
+border-color: transparent;
+background-color: rgb(97, 15, 173);
+border-style: none;
+}
+.formName::placeholder {
+color: azure;
+border-style: none;
+}
+.formName::backdrop {
+border-style: none;
+}

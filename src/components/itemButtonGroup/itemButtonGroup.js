@@ -485,25 +485,7 @@ const ItemButtonGroup = () => {
       />
     ) : null;
 
-  const wearButton = !data.isWearing ? (
-    <Button
-      className={classes.myButton}
-      onClick={() => {
-        handleWear();
-      }}
-    >
-      Wear this item
-    </Button>
-  ) : (
-    <Button
-      className={classes.myButton}
-      onClick={() => {
-        handleUnwear();
-      }}
-    >
-      Unwear this item
-    </Button>
-  );
+
   const thridPerson = (
     <>
       <div
@@ -528,7 +510,6 @@ const ItemButtonGroup = () => {
           justifyContent: "center",
         }}
       >
-        {wearButton}
         {auctionButton}
         {saleButton}
       </div>

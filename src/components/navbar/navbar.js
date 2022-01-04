@@ -9,6 +9,7 @@ import Typography from "@material-ui/core/Typography";
 import InputBase from "@material-ui/core/InputBase";
 import Badge from "@material-ui/core/Badge";
 import MenuItem from "@material-ui/core/MenuItem";
+import { IoIosAdd } from 'react-icons/io'
 import Button from "@material-ui/core/Button";
 import LabelIcon from "@material-ui/icons/Label";
 import Menu from "@material-ui/core/Menu";
@@ -26,6 +27,7 @@ import { getMyUsername } from "../../recoils/selectors";
 import { myUsername, myAddress } from "../../recoils/atoms";
 
 import Nft from "../../abis/nft.json";
+import { IoIosHeart } from "react-icons/io";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -211,18 +213,6 @@ const Navbar = () => {
       onClose={handleMobileMenuClose}
     >
       <MenuItem onClick={() => {
-                window.location.href = "/avatars";
-              }}>
-              <SupervisedUserCircleIcon
-                style={{
-                  verticalAlign: "middle",
-                  marginRight: 5,
-                  fontSize: 20,
-                }}
-              />
-              Avatars
-      </MenuItem>
-      <MenuItem onClick={() => {
                 window.location.href = "/marketplace";
               }}>
               <StorefrontIcon
@@ -305,21 +295,6 @@ const Navbar = () => {
           <div className={classes.sectionDesktop}>
             {/* <div style={{ marginTop: 10 }}>{useRecoilValue(getUsername)}</div> */}
 
-            <Button
-              color="inherit"
-              onClick={() => {
-                window.location.href = "/avatars";
-              }}
-            >
-              <SupervisedUserCircleIcon
-                style={{
-                  verticalAlign: "middle",
-                  marginRight: 5,
-                  fontSize: 20,
-                }}
-              />
-              Avatars
-            </Button>
             {/* <Button
               color="inherit"
               onClick={() => {
@@ -344,11 +319,41 @@ const Navbar = () => {
               <StorefrontIcon
                 style={{
                   verticalAlign: "middle",
-                  marginRight: 5,
+                  marginRight: 4,
                   fontSize: 20,
                 }}
               />
-              All items{/*Marketplace */}
+              Marketplace{/*Marketplace */}
+            </Button>
+            <Button
+            color="inherit"
+            onClick={() => {
+              window.location.href = "/create"
+            }
+            }
+            >
+              <IoIosAdd
+              style={{
+                verticalAlign: "middle",
+                marginRight: 4,
+                fontSize: 20,
+              }}
+              />
+              Create Item
+            </Button>
+            <Button
+            color="inherit"
+            onClick={() => {
+              window.location.href = "/favorites";
+            }}
+            >
+            <IoIosHeart
+            style={{
+              verticalAlign: "middle",
+              marginRight: 4,
+              fontSize: 20,
+            }} />
+            Favorites
             </Button>
             {/* {window.ethereum && !window.ethereum.selectedAddress && (
               <>
